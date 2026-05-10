@@ -8,5 +8,4 @@ node_modules/
 /playwright/.auth/
 .env
 reports
-package-lock.json
 
