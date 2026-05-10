@@ -1,0 +1,23 @@
+{
+  "name": "cinepollis-india-playwright-automation",
+  "version": "1.0.0",
+  "description": "Playwright UI Automation Framework for Cinepolis India",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:movie-browsing": "playwright test tests/movie-browsing.spec.js",
+    "test:show-selection": "playwright test tests/show-selection.spec.js",
+    "test:seat-selection": "playwright test tests/seat-selection.spec.js",
+    "test:booking-flow": "playwright test tests/booking-flow.spec.js",
+    "test:negative": "playwright test tests/negative-cases.spec.js",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen https://www.cinepolisindia.com"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.0.0"
+  },
+  "author": "Madhukar Kambli"
+}

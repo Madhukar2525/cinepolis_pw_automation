@@ -1,0 +1,14 @@
+{
+  "shawn" : {
+    "firstName": "Shawn",
+    "lastName": "Michael",
+    "email": "shawn.michael@gmail.com",
+    "mobile": "9876543210"
+  },
+  "empty" : {
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "mobile": ""
+  }
+}
