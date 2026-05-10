@@ -34,98 +34,98 @@ test.describe('Seat Selection', {tag: ['@seat_selection', '@regression']}, () =>
   });
 
 
-  // test('TC-SL-02 | Seat categories are displayed in the legend', {tag: ['@seat02']}, async ({ seatSelectionPage, page }) => {
-  //   await seatSelectionPage.assertPageRedirection();
-  //   await seatSelectionPage.waitForSeatMap();
-  //   const categories = await seatSelectionPage.getSeatCategories();
-  //   console.log("Categories: ", categories)
-  //   await takeScreenshot(page, 'seat-categories');
+  test('TC-SL-02 | Seat categories are displayed in the legend', {tag: ['@seat02']}, async ({ seatSelectionPage, page }) => {
+    await seatSelectionPage.assertPageRedirection();
+    await seatSelectionPage.waitForSeatMap();
+    const categories = await seatSelectionPage.getSeatCategories();
+    console.log("Categories: ", categories)
+    await takeScreenshot(page, 'seat-categories');
 
-  //   expect(categories.length).toBeGreaterThan(0);
-  //   for (const i of categories) {
-  //     expect(i.trim()).not.toBe('');
-  //   }
-  // });
-
-
-  // test('TC-SL-03 | Selecting one seat reflects in the summary bar', {tag: ['@seat03']}, async ({ seatSelectionPage, page}) => {
-  //   await seatSelectionPage.assertPageRedirection();
-  //   await seatSelectionPage.waitForSeatMap();
-  //   const seats = 1
-  //   await seatSelectionPage.selectSeats(seats);
-
-  //   const selectedCount = await seatSelectionPage.getSelectedSeatCount();
-  //   await takeScreenshot(page, 'single-seat-selected');
-  //   expect(selectedCount).toBe(1);
-
-  //   await expect(page.getByText(`${seats} Seats`)).toBeVisible();
-  // });
+    expect(categories.length).toBeGreaterThan(0);
+    for (const i of categories) {
+      expect(i.trim()).not.toBe('');
+    }
+  });
 
 
-  // test('TC-SL-04 | Selecting two seats updates total amount', {tag: ['@seat04']}, async ({ seatSelectionPage, page }) => {
-  //   await seatSelectionPage.assertPageRedirection();
-  //   await seatSelectionPage.waitForSeatMap();
-  //   await seatSelectionPage.selectSeats(2);
+  test('TC-SL-03 | Selecting one seat reflects in the summary bar', {tag: ['@seat03']}, async ({ seatSelectionPage, page}) => {
+    await seatSelectionPage.assertPageRedirection();
+    await seatSelectionPage.waitForSeatMap();
+    const seats = 1
+    await seatSelectionPage.selectSeats(seats);
 
-  //   const total = await seatSelectionPage.getTotalAmount();
-  //   console.log("Total: ", total);
-  //   const amount = parseRupeeAmount(total);
-  //   console.log("Amount: ", amount);
+    const selectedCount = await seatSelectionPage.getSelectedSeatCount();
+    await takeScreenshot(page, 'single-seat-selected');
+    expect(selectedCount).toBe(1);
 
-  //   await takeScreenshot(page, 'two-seats-selected');
-  //   expect(amount).toBeGreaterThan(0);
-  // });
-
-
-  // test('TC-SL-05 | Deselecting a seat reduces selected count', {tag: ['@seat05']}, async ({
-  //   seatSelectionPage,
-  //   page,
-  // }) => {
-  //   await seatSelectionPage.assertPageRedirection();
-  //   await seatSelectionPage.waitForSeatMap();
-  //   await seatSelectionPage.selectSeats(2);
-
-  //   const beforeDeselect = await seatSelectionPage.getSelectedSeatCount();
-  //   await seatSelectionPage.deselectSeat(0);
-  //   const afterDeselect = await seatSelectionPage.getSelectedSeatCount();
-
-  //   await takeScreenshot(page, 'seat-deselected');
-  //   expect(afterDeselect).toBe(beforeDeselect - 1);
-  // });
+    await expect(page.getByText(`${seats} Seats`)).toBeVisible();
+  });
 
 
-  // test('TC-SL-06 | Proceed button is enabled when seats are selected', {tag: ['@seat06']}, async ({ seatSelectionPage, page, bookingSummaryPage }) => {
-  //   await seatSelectionPage.assertPageRedirection();
-  //   await seatSelectionPage.selectSeats(1);
+  test('TC-SL-04 | Selecting two seats updates total amount', {tag: ['@seat04']}, async ({ seatSelectionPage, page }) => {
+    await seatSelectionPage.assertPageRedirection();
+    await seatSelectionPage.waitForSeatMap();
+    await seatSelectionPage.selectSeats(2);
 
-  //   const proceedBtn = seatSelectionPage.proceedButton;
-  //   await proceedBtn.waitFor({ state: 'visible', timeout: 10_000 });
-  //   await takeScreenshot(page, 'proceed-button-enabled');
+    const total = await seatSelectionPage.getTotalAmount();
+    console.log("Total: ", total);
+    const amount = parseRupeeAmount(total);
+    console.log("Amount: ", amount);
 
-  //   const isDisabled = await proceedBtn.isDisabled();
-  //   expect(isDisabled).toBeFalsy();
-  // });
+    await takeScreenshot(page, 'two-seats-selected');
+    expect(amount).toBeGreaterThan(0);
+  });
 
 
-  // test('TC-SL-07 | Selecting seats and clicking Proceed moves to booking summary', {tag: ['@seat07']}, async ({
-  //   seatSelectionPage,
-  //   bookingSummaryPage,
-  //   page,
-  // }) => {
-  //   await seatSelectionPage.assertPageRedirection();
-  //   await seatSelectionPage.selectSeats(2);
+  test('TC-SL-05 | Deselecting a seat reduces selected count', {tag: ['@seat05']}, async ({
+    seatSelectionPage,
+    page,
+  }) => {
+    await seatSelectionPage.assertPageRedirection();
+    await seatSelectionPage.waitForSeatMap();
+    await seatSelectionPage.selectSeats(2);
 
-  //   const proceedBtn = seatSelectionPage.proceedButton;
-  //   await proceedBtn.waitFor({ state: 'visible', timeout: 10_000 });
-  //   await takeScreenshot(page, 'proceed-button-enabled');
+    const beforeDeselect = await seatSelectionPage.getSelectedSeatCount();
+    await seatSelectionPage.deselectSeat(0);
+    const afterDeselect = await seatSelectionPage.getSelectedSeatCount();
 
-  //   const isDisabled = await proceedBtn.isDisabled();
-  //   expect(isDisabled).toBeFalsy();
+    await takeScreenshot(page, 'seat-deselected');
+    expect(afterDeselect).toBe(beforeDeselect - 1);
+  });
 
-  //   await seatSelectionPage.proceedToBooking();
-  //   await seatSelectionPage.clickAcceptAndProceed();
-  //   await bookingSummaryPage.assertPageRedirection();
-  // });
+
+  test('TC-SL-06 | Proceed button is enabled when seats are selected', {tag: ['@seat06']}, async ({ seatSelectionPage, page, bookingSummaryPage }) => {
+    await seatSelectionPage.assertPageRedirection();
+    await seatSelectionPage.selectSeats(1);
+
+    const proceedBtn = seatSelectionPage.proceedButton;
+    await proceedBtn.waitFor({ state: 'visible', timeout: 10_000 });
+    await takeScreenshot(page, 'proceed-button-enabled');
+
+    const isDisabled = await proceedBtn.isDisabled();
+    expect(isDisabled).toBeFalsy();
+  });
+
+
+  test('TC-SL-07 | Selecting seats and clicking Proceed moves to booking summary', {tag: ['@seat07']}, async ({
+    seatSelectionPage,
+    bookingSummaryPage,
+    page,
+  }) => {
+    await seatSelectionPage.assertPageRedirection();
+    await seatSelectionPage.selectSeats(2);
+
+    const proceedBtn = seatSelectionPage.proceedButton;
+    await proceedBtn.waitFor({ state: 'visible', timeout: 10_000 });
+    await takeScreenshot(page, 'proceed-button-enabled');
+
+    const isDisabled = await proceedBtn.isDisabled();
+    expect(isDisabled).toBeFalsy();
+
+    await seatSelectionPage.proceedToBooking();
+    await seatSelectionPage.clickAcceptAndProceed();
+    await bookingSummaryPage.assertPageRedirection();
+  });
 
 
 });

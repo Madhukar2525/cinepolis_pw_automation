@@ -81,24 +81,24 @@ test.describe('Booking Flow (E2E)', {tag: ['@booking_flow', '@regression']}, () 
   });
 
 
-  // test('TC-BF-02 | Back navigation from movie page returns to show listing', { tag: ['@bf02'] }, async ({
-  //   homePage,
-  //   movieDetailPage,
-  //   seatSelectionPage,
-  //   page,
-  // }) => {
-  //   await homePage.goto();
-  //   // await homePage.selectCity(CITIES.DEFAULT);
-  //   await homePage.waitForMovies();
-  //   await homePage.bookFirstMovie();
+  test('TC-BF-02 | Back navigation from movie page returns to show listing', { tag: ['@bf02'] }, async ({
+    homePage,
+    movieDetailPage,
+    seatSelectionPage,
+    page,
+  }) => {
+    await homePage.goto();
+    // await homePage.selectCity(CITIES.DEFAULT);
+    await homePage.waitForMovies();
+    await homePage.bookFirstMovie();
 
-  //   // Go back
-  //   await page.goBack();
-  //   await page.waitForLoadState('domcontentloaded');
-  //   await takeScreenshot(page, 'bf-04-back-navigation');
+    // Go back
+    await page.goBack();
+    await page.waitForLoadState('domcontentloaded');
+    await takeScreenshot(page, 'bf-04-back-navigation');
 
-  //   // Should be back on the show listing / movie detail page
-  //   const urlAfterBack = page.url();
-  //   expect(urlAfterBack).toContain('cinepolisindia.com');
-  // });
+    // Should be back on the show listing / movie detail page
+    const urlAfterBack = page.url();
+    expect(urlAfterBack).toContain('cinepolisindia.com');
+  });
 });

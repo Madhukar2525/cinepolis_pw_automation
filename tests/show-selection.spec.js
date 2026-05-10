@@ -21,27 +21,27 @@ test.describe('Show Selection', {tag: ['@show_selection', '@regression']}, () =>
   });
 
 
-  // test('TC-SS-02 | Date tabs are present for upcoming days', {tag: ['@show02']}, async ({ movieDetailPage, page}) => {
-  //   const dates = await movieDetailPage.getAvailableDates();
-  //   console.log("Date: ", dates);
-  //   await takeScreenshot(page, 'date-tabs');
-  //   expect(dates.length).toBeGreaterThanOrEqual(1);
-  // });
+  test('TC-SS-02 | Date tabs are present for upcoming days', {tag: ['@show02']}, async ({ movieDetailPage, page}) => {
+    const dates = await movieDetailPage.getAvailableDates();
+    console.log("Date: ", dates);
+    await takeScreenshot(page, 'date-tabs');
+    expect(dates.length).toBeGreaterThanOrEqual(1);
+  });
 
 
-  // test('TC-SS-03 | Clicking an available show time navigates seat selection page', {tag: ['@show03']}, async ({ movieDetailPage, seatSelectionPage, page}) => {
-  //   await movieDetailPage.selectDateByIndex(1);
-  //   const noShows = await movieDetailPage.hasNoShows();
+  test('TC-SS-03 | Clicking an available show time navigates seat selection page', {tag: ['@show03']}, async ({ movieDetailPage, seatSelectionPage, page}) => {
+    await movieDetailPage.selectDateByIndex(1);
+    const noShows = await movieDetailPage.hasNoShows();
 
-  //   if (noShows) {
-  //     test.skip();
-  //     return;
-  //   }
+    if (noShows) {
+      test.skip();
+      return;
+    }
 
-  //   const chosenTime = await movieDetailPage.selectFirstAvailableShow();
-  //   console.log(`Chose show time: ${chosenTime}`);
-  //   await takeScreenshot(page, 'show-time-selected');
+    const chosenTime = await movieDetailPage.selectFirstAvailableShow();
+    console.log(`Chose show time: ${chosenTime}`);
+    await takeScreenshot(page, 'show-time-selected');
 
-  //   await seatSelectionPage.assertPageRedirection();
-  // });
+    await seatSelectionPage.assertPageRedirection();
+  });
 });
