@@ -3,7 +3,7 @@ const { CITIES, SHOWS } = require('../test-data/testData');
 const { takeScreenshot, parseRupeeAmount } = require('../src/utils/helpers');
 const users = require('../test-data/users.json')
 
-test.describe('Booking Flow (E2E)', {tag: ['@booking_flow']}, () => {
+test.describe('Booking Flow (E2E)', {tag: ['@booking_flow', '@regression']}, () => {
 
   test('TC-BF-01 | Full booking flow: Home → City → Movie → Show → Seats → Summary', { tag: ['@bf01'] }, async ({
     homePage,

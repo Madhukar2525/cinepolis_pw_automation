@@ -2,7 +2,7 @@ const { test, expect } = require('../src/fixtures/pageFixtures');
 const { CITIES } = require('../test-data/testData');
 const { takeScreenshot } = require('../src/utils/helpers');
 
-test.describe('Show Selection', {tag: ['@show_selection']}, () => {
+test.describe('Show Selection', {tag: ['@show_selection', '@regression']}, () => {
 
   test.beforeEach(async ({ homePage, movieDetailPage, page }) => {
     await homePage.goto();
