@@ -120,3 +120,43 @@ npm run report
 # or
 npx playwright show-report reports/html-report
 ```
+
+---
+
+## 🧪 Test Scenarios
+
+### Movie Browsing (8 tests)
+- Home page loads with Cinepolis in title
+- Now Showing section visible after city selection
+- Movie listing shows at least one movie card
+- All movie cards have a non-empty title
+- Switching city updates movie listing
+- Book Now button is present on movie cards
+- Clicking a movie card navigates to movie detail page
+- Page URL contains cinepolisindia.com domain
+
+### Show Selection (3 tests)
+- Movie title displayed on detail page
+- Date tabs present for upcoming days
+- Clicking a show navigates forward
+
+### Seat Selection (7 tests)
+- Seat map renders with available seats
+- Seat categories shown in legend
+- Selecting one seat updates summary bar
+- Selecting two seats updates total amount
+- Deselecting reduces count
+- Proceed button enabled when seats are selected
+- Proceed navigates to booking summary
+
+### Booking Flow — E2E (2 tests)
+- Full happy path: Home → City → Movie → Show → Seats → Summary
+- Back navigation returns to show listing
+
+### Negative Cases (4 tests)
+- Proceed disabled when no seats selected
+- Sold-out shows are not clickable
+- Non-existent movie URL shows 404 or redirects
+- Booked seats cannot be selected
+
+---
