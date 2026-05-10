@@ -3,7 +3,7 @@ const { CITIES, SHOWS } = require('../test-data/testData');
 const { takeScreenshot, parseRupeeAmount } = require('../src/utils/helpers');
 const users = require('../test-data/users.json')
 
-test.describe('Negative Cases', { tag: ['@negative_tcs'] }, () => {
+test.describe('Negative Cases', { tag: ['@negatives'] }, () => {
 
   test('TC-NC-01 | Proceed button is disabled when no seats are selected', { tag: ['@ntc01'] }, async ({ homePage, movieDetailPage, seatSelectionPage, page, bookingSummaryPage }) => {
     await homePage.goto();
